@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Х Л Е Б Я Т А</title>
+    <style>
+        @font-face {
+            font-family: Bounded; /* Гарнитура шрифта */
+            src: url(Bounded-Regular.ttf); /* Путь к файлу со шрифтом */
+        }
+@font-face {
+            font-family: San Francisco; /* Гарнитура шрифта */
+            src: url(SF.ttf); /* Путь к файлу со шрифтом */
+        }
+
+
+        h1 {
+            font-family: Bounded, 'Arial';
+        }
+p {
+            font-family: San Francisco, 'Arial';
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Анимированные кривые линии */
+        .lines-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .line {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 0, 204, 0.2), rgba(51, 51, 255, 0.2));
+            clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+            animation: waveAnimation 6s infinite ease-in-out;
+        }
+
+        .line:nth-child(1) {
+            animation-delay: 0s;
+            opacity: 0.8;
+            clip-path: polygon(0% 50%, 100% 40%, 100% 100%, 0% 100%);
+        }
+
+        .line:nth-child(2) {
+            animation-delay: -2s;
+            opacity: 0.6;
+            clip-path: polygon(0% 50%, 100% 60%, 100% 100%, 0% 100%);
+        }
+
+        .line:nth-child(3) {
+            animation-delay: -4s;
+            opacity: 0.4;
+            clip-path: polygon(0% 50%, 100% 70%, 100% 100%, 0% 100%);
+        }
+
+        @keyframes waveAnimation {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Шапка */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #ff00cc, #3333ff, #ff00cc);
+            background-size: 200% 200%;
+            animation: gradient 5s ease infinite;
+            padding: 10px;
+            text-align: center;
+            z-index: 1000;
+            transition: all 0.5s ease;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .logo {
+            width: 70px;
+            height: auto;
+            transition: all 0.5s ease;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem); /* Адаптивный размер шрифта */
+            margin-bottom: 20px;
+            color: #ff00cc;
+        }
+
+        p {
+            font-size: clamp(1rem, 3vw, 1.2rem); /* Адаптивный размер шрифта */
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: rgba(51, 51, 51, 0.8); /* Полупрозрачный фон */
+            border: 2px solid #5865F2;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #E0E3FF;
+            color: #1a1a1a;
+            transform: translateY(-5px);
+        }
+
+        .button.copy {
+            background-color: rgba(68, 68, 68, 0.8); /* Полупрозрачный фон */
+            border-color: #66c0f4;
+        }
+
+        .button.copy:hover {
+            background-color: #c7d5e0;
+            color: #1a1a1a;
+        }
+.icon {
+            width: 60px; /* Размер иконок */
+            height: 60px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+.icon:hover {
+            transform: scale(1.1); /* Увеличение при наведении */
+        }
+
+
+        /* Медиа-запрос для широких экранов */
+        @media (min-width: 1200px) {
+            header {
+                width: 100px;
+                height: 100px;
+                border-radius: 20px;
+                padding: 0;
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: none; /* Убираем анимацию */
+                background: linear-gradient(45deg, #ff00cc, #3333ff);
+            }
+
+            .logo {
+                width: 70px;
+            }
+
+            .container {
+                padding-top: 100px; /* Отступ для шапки */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Анимированные кривые линии -->
+    <div class="lines-container">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <!-- Фоновая картинка -->
+    <div class="background-image"></div>
+
+    <!-- Шапка -->
+    <header>
+        <img src="khlebyata_wjoy_white.png" alt="Логотип" class="logo">
+    </header>
+
+    <!-- Основной контент -->
+    <div class="container">
+        <h1>больше, чем сервер</h1>
+        <p>Игроцентр ХЛЕБЯТА - сообщество близких по духу друзей, любящих временами поиграть в интересные игры! Здесь можно лампово провести время, интересно побеседовать, задать вопрос на форуме и просто весело поиграть в одной из наших комнат! У нас есть сервер в Discord, группа в Steam и собственные сервера для некоторых игр! Присоединяйтесь!</p>
+        <div class="buttons">
+            <a href="https://discord.gg/YKGMQAA8MH" class="icon-link">
+                <img src="ds.webp" alt="Discord" class="icon">
+            </a>
+            <a href="https://steamcommunity.com/chat/invite/Sh5M16o8" class="icon-link">
+                <img src="steam.png" alt="Steam" class="icon">
+        </div>
+    </div>
+</body>
+</html>
